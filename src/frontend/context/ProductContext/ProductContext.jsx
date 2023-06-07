@@ -237,7 +237,9 @@ export const ProductProvider = ({ children }) => {
       : data;
 
     const filterByPrice = state.filters.priceRange
-      ? searchText.filter(({ price }) => price <= state.filters.priceRange)
+      ? searchText.filter(
+          ({ price }) => Number(price) <= Number(state.filters.priceRange)
+        )
       : searchText;
 
     const filterByCategory = state.filters.category.length

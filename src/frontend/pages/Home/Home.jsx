@@ -52,14 +52,6 @@ export const Home = () => {
           )}
         </div>
       </div>
-      <footer>
-        <div className="footer-container">
-          <div className="footer-header-container">
-            <h1 className="footer-header">Footer</h1>
-          </div>
-          <div className="footer-link-container"></div>
-        </div>
-      </footer>
     </div>
   );
 };

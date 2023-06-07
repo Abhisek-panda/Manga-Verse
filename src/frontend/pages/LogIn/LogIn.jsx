@@ -61,10 +61,11 @@ export const LogIn = () => {
               />
             </label>
             <div className="login-btn-container">
-              <button className="login-btns">
+              <button className="login-btns" type="sumbit">
                 {isLoggedIn ? "Logged In" : "logIn"}
               </button>
               <button
+                type="submit"
                 className="login-btns"
                 onClick={() =>
                   setLogInCredentials({

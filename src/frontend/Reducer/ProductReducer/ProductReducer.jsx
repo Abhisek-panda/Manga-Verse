@@ -78,7 +78,7 @@ export const ProductReducer = (state, action) => {
       return {
         ...state,
         filters: {
-          ...state.fitlers,
+          ...state.filters,
           priceRange: action.payload,
         },
       };

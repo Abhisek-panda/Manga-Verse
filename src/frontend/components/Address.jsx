@@ -35,12 +35,6 @@ export const Address = () => {
                   >
                     Remove
                   </button>
-                  <button
-                    className="common-btn"
-                    onClick={() => editingAddress(add)}
-                  >
-                    Edit
-                  </button>
                 </div>
               </div>
             </div>

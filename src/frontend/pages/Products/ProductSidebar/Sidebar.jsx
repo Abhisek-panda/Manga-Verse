@@ -5,12 +5,6 @@ import "../../Products/ProductSidebar/Sidebar.css";
 
 export const Sidebar = () => {
   const { state, changeFilters, dispatch } = useProduct();
-  const [value, setValue] = useState(state?.fitlers?.priceRange);
-
-  const filterPrice = (event) => {
-    setValue(event.target.value);
-    dispatch({ type: "FILTER_PRICE", payload: value });
-  };
 
   return (
     <div>
@@ -33,9 +27,15 @@ export const Sidebar = () => {
                 name="filter-price"
                 min="200"
                 max="3500"
+                step="400"
                 value={state?.filters?.priceRange}
                 className="input-range"
-                onChange={(event) => filterPrice(event)}
+                onChange={(event) => {
+                  dispatch({
+                    type: "FILTER_PRICE",
+                    payload: event.target.value,
+                  });
+                }}
               />
             </div>
           </div>

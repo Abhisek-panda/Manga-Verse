@@ -46,7 +46,6 @@ export const AuthProvider = ({ children }) => {
     try {
       setIsLoggedIn(true);
       const response = await axios.post("api/auth/login", { email, password });
-      console.log({ response });
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem("token", response?.data?.encodedToken);
         localStorage.setItem(

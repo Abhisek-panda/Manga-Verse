@@ -86,10 +86,11 @@ https://3.bp.blogspot.com/-RQ1_YCDBaWY/XSRKIFmR4dI/AAAAAAAAAjs/rexrFu1FGjId7pieV
 
 .category-line {
   width: 30%;
-  margin-top: -15px;
+  margin: auto;
   height: 0.2rem;
   background-color: var(--second-color);
   border: none;
+
   margin-bottom: 30px;
 }
 
