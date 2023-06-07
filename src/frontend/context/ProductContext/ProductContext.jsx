@@ -228,39 +228,42 @@ export const ProductProvider = ({ children }) => {
     dispatch({ type: "CHANGE_FILTERS", payload: { filterType, filterValue } });
   };
 
-  const searchText = state.filters.searchText
-    ? state?.showProducts?.filter(({ title }) =>
-        title.toLowerCase().includes(state.filters.searchText.toLowerCase())
-      )
-    : state.showProducts;
-
-  const filterByPrice = state.filters.priceRange
-    ? searchText.filter(({ price }) => price <= state.filters.priceRange)
-    : searchText;
-
-  const filterByCategory = state.filters.category.length
-    ? filterByPrice.filter(({ categoryName }) =>
-        state.filters.category.includes(categoryName)
-      )
-    : filterByPrice;
-
-  const filterByRating =
-    state.filters.rating !== ""
-      ? filterByCategory.filter(
-          ({ rating }) => Number(rating) <= Number(state.filters.rating)
+  useEffect(() => {
+    let data = [...state.allProducts];
+    const searchText = state.filters.searchText
+      ? data.filter(({ title }) =>
+          title.toLowerCase().includes(state.filters.searchText.toLowerCase())
         )
-      : filterByCategory;
+      : data;
 
-  const sortByPrice = state.filters.sortBy
-    ? [...filterByRating].sort((a, b) =>
-        state.filters.sortBy === "highToLow"
-          ? b.price - a.price
-          : a.price - b.price
-      )
-    : filterByRating;
+    const filterByPrice = state.filters.priceRange
+      ? searchText.filter(({ price }) => price <= state.filters.priceRange)
+      : searchText;
 
-  state.showProducts = sortByPrice;
-  console.log("aaa", sortByPrice);
+    const filterByCategory = state.filters.category.length
+      ? filterByPrice.filter(({ categoryName }) =>
+          state.filters.category.includes(categoryName)
+        )
+      : filterByPrice;
+
+    const filterByRating =
+      state.filters.rating !== ""
+        ? filterByCategory.filter(
+            ({ rating }) => Number(rating) <= Number(state.filters.rating)
+          )
+        : filterByCategory;
+
+    const sortByPrice = state.filters.sortBy
+      ? [...filterByRating].sort((a, b) =>
+          state.filters.sortBy === "highToLow"
+            ? b.price - a.price
+            : a.price - b.price
+        )
+      : filterByRating;
+
+    console.log("aaa", sortByPrice);
+    dispatch({ type: "SHOW_PRODUCTS", payload: sortByPrice });
+  }, [state.filters]);
 
   return (
     <ProductContext.Provider
@@ -269,10 +272,8 @@ export const ProductProvider = ({ children }) => {
         dispatch,
         lowToHigh,
         highToLow,
-        filterByCategory,
         filterBySlider,
         addToCart,
-        filterByRating,
         productInfo,
         addToWishlist,
         totalCartOriginalPrice,

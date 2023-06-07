@@ -162,6 +162,11 @@ export const ProductReducer = (state, action) => {
         };
       }
     }
+    case "SHOW_PRODUCTS":
+      return {
+        ...state,
+        showProducts: action.payload,
+      };
 
     case "SET_RATING": {
       return {
