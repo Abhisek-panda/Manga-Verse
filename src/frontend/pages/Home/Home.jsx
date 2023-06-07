@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Header } from "../Header/Header";
 import "../Home/Home.css";
 import { useCategoriesContext } from "../../..";
 
 export const Home = () => {
+  const navigate = useNavigate();
   const { showCategories } = useCategoriesContext();
   const { categories } = showCategories;
   console.log(categories);
@@ -40,7 +41,12 @@ export const Home = () => {
                 return (
                   <div className="category-card-container" key={_id}>
                     <div className="category-card-text-container">
-                      <h2 className="category-card-header">{categoryName}</h2>
+                      <h2
+                        className="category-card-header"
+                        onClick={() => navigate("/products")}
+                      >
+                        {categoryName}
+                      </h2>
                     </div>
                     <div className="category-card-image-container">
                       <img src={image} alt="" className="category-card-image" />
