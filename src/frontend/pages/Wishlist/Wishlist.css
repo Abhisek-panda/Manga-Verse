@@ -1,0 +1,11 @@
+.wishlist-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: black;
+  row-gap: 10px;
+  color: white;
+}
+.wishlist {
+  background-color: black;
+  height: 90vh;
+}

@@ -1,0 +1,32 @@
+.address-page {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.address-name-city {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  row-gap: 7px;
+  text-transform: capitalize;
+  border: 1px solid white;
+  margin: 0 20px;
+  margin-bottom: 10px;
+  border-radius: var(--br-radius);
+}
+.address-btn-container {
+  display: flex;
+  justify-content: center;
+  column-gap: 7px;
+  margin: 10px 0;
+}
+
+.common-link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+}
+
+.common-link:hover {
+  color: white;
+}

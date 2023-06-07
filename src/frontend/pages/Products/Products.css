@@ -1,0 +1,177 @@
+:root {
+  --first-color: #000000;
+  --second-color: #ffffff;
+  --third-color: rgb(95, 22, 119);
+}
+
+/* Products-home-page */
+.product-page {
+  background-color: var(--first-color);
+  color: var(--second-color);
+  scroll-behavior: smooth;
+}
+
+.products {
+  /* display: flex; */
+  /* justify-content: center; */
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px auto;
+  /* grid-template-rows: 1fr 1fr; */
+  width: auto;
+  /* border: 2px solid red; */
+}
+
+/* Each-product-styling */
+
+.product-listing-container {
+  margin: 10px 0 0 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  row-gap: 1rem;
+  background-color: var(--first-color);
+}
+
+.mangas {
+  background-color: var(--first-color);
+}
+.manga-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid red; */
+  background-color: #212121;
+  height: 380px;
+  width: 300px;
+  /* box-shadow: rgba(179, 179, 179, 0.35) 0px 5px 15px; */
+  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.1), 0 1px 2px #222;
+  border-radius: 5px;
+}
+
+.manga-image-container {
+  height: 250px;
+  width: 180px;
+  margin: 0 auto;
+}
+
+.manga-cover {
+  object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
+  transition: all 0.2s ease;
+}
+.manga-cover:hover {
+  transform: scale(1.03);
+}
+
+.manga-flex {
+  display: flex;
+}
+.manga-author-price {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid red; */
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.manga-price-container {
+  align-items: center;
+}
+
+.manga-btns {
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.cart-btn {
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  border: 1px solid transparent;
+  background-color: var(--third-color);
+  color: var(--second-color);
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+}
+.cart-btn:hover {
+  background-color: rgba(95, 22, 119, 0.7);
+}
+
+.manga-author {
+  font-size: 0.9rem;
+  color: rgba(230, 230, 230, 0.5);
+}
+
+.manga-cart-btn {
+  width: 8rem;
+  /* border: 2px solid red; */
+}
+.manga-title-container {
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.manga-price {
+  font-size: 16px;
+  /* letter-spacing: 1px; */
+  color: darkorange;
+  font-weight: 800;
+  color: #2187b9;
+}
+.manga-price::before {
+  content: "\20B9";
+}
+
+.manga-original-price {
+  font-size: 14px;
+  margin: 4px;
+  letter-spacing: 1px;
+  text-decoration: line-through;
+  color: rgba(244, 244, 244, 0.5);
+}
+.manga-original-price::before {
+  content: "\20B9";
+}
+
+.manga-detail-btn {
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  border: 1px solid transparent;
+  background-color: limegreen;
+  color: var(--first-color);
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+}
+.manga-detail-btn:hover {
+  background-color: rgba(50, 205, 50, 0.7);
+}
+
+.wishlist-btn {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.wishlist-icons {
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.wishlist-icons:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+.wishlist-filled-icons {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: red;
+}
+.wishlist-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}

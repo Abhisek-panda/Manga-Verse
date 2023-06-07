@@ -1,0 +1,89 @@
+.checkout-page-container {
+  height: 90vh;
+  background-color: black;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.order-summary {
+  width: 45rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.checkout-address-container {
+  height: max-content;
+  padding: 10px;
+  /* border: 2px solid red; */
+}
+
+.no {
+  margin: 5px;
+  padding: 8px;
+}
+
+.order-summary-title-qty {
+  display: flex;
+  width: 40%;
+  font-size: 1.08rem;
+  margin: auto;
+  margin-top: 5px;
+  /* text-align: left; */
+  justify-content: space-between;
+}
+
+.total-order-price {
+  color: limegreen;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.checkout-address-combine {
+  font-size: 1.1rem;
+  border: 1px solid white;
+  padding: 3px;
+  border-radius: 5px;
+  width: 30rem;
+  margin: auto;
+  text-transform: capitalize;
+}
+.order-title {
+  margin-top: 10px;
+}
+.place-order-link {
+  border: 2px solid limegreen;
+  width: 10rem;
+  margin: auto;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.place-order-link:hover {
+  background-color: limegreen;
+  color: black;
+}
+
+/* checkout Adress  */
+
+.checkout-address-select {
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  text-align: left;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  border: 1px solid white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.checkout-address-label {
+  display: flex;
+  width: 60;
+  flex-direction: flex-start;
+  /* justify-content: space-evenly; */
+  margin-left: 5px;
+  column-gap: 10px;
+}

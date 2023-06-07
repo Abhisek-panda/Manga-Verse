@@ -1,0 +1,148 @@
+.cart-divider {
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+}
+
+.cart-container {
+  scroll-behavior: smooth;
+  height: 90vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
+.cart-container::-webkit-scrollbar {
+  display: none;
+}
+.cart-quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btns {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.quantity-btns:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cart-details {
+  display: flex;
+  flex-direction: row;
+  width: 35rem;
+  height: 15rem;
+  margin-left: 12rem;
+}
+.quantity-btns-container > p {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.cart-product-details {
+  /* border: 2px solid yellow; */
+  row-gap: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  margin-top: 20px;
+}
+
+.cart-img-container {
+  margin-top: 5px;
+  /* border: 2px solid red; */
+  margin: auto;
+  margin-left: 10px;
+  height: 200px;
+  width: 150px;
+}
+
+.cart-title {
+  font-size: small;
+  font-style: italic;
+}
+.quantity-btns-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-author > h4 {
+  color: rgba(230, 230, 230, 0.5);
+}
+.cart-price > h4 {
+  margin-right: 5px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.remove-cart-btn {
+  width: max-content;
+  background-color: rgb(150, 7, 7);
+}
+.remove-cart-btn:hover {
+  background-color: rgba(150, 7, 7, 0.5);
+}
+.cart-btns-container {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 45px;
+}
+
+.cart-reducer {
+  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.1), 0 1px 2px #222;
+  height: 300px;
+  margin-right: 3rem;
+  width: 400px;
+  background-color: #222;
+  border-radius: 5px;
+}
+
+.cart-price-title {
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+
+.cart-price-reducer {
+  text-align: left;
+  margin: 8px 0 5px 5rem;
+  font-size: 18px;
+}
+.cart-price-span {
+  margin-left: 5px;
+  letter-spacing: 1px;
+}
+.cart-price-span::before {
+  content: "\20B9";
+}
+.hr {
+  width: 70%;
+  margin: auto;
+}
+.checkout-btn {
+  margin-top: 1.5rem;
+  width: 80%;
+  background-color: limegreen;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.checkout-btn:hover {
+  background-color: rgba(50, 205, 50, 0.7);
+}
+.cart-total-price {
+  color: limegreen;
+  font-weight: 800;
+}
+.cart-length-span {
+  font-size: 16px;
+}
+
+.checkout-link {
+  text-decoration: none;
+  color: black;
+}
