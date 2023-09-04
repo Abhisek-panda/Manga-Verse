@@ -23,7 +23,10 @@ export const ProductInfo = () => {
           <>
             <div className="manga-product-info-page">
               <div className="product-info-image-container">
-                <img src={state?.productInfo?.imageURL} alt="" />
+                <img
+                  src={state?.productInfo?.imageURL}
+                  alt={state.productInfo.title}
+                />
               </div>
               <div className="product-info-description-details">
                 <div className="product-info-title">

@@ -1,10 +1,14 @@
-import { useState } from "react";
 import { useProduct } from "../../../..";
 
 import "../../Products/ProductSidebar/Sidebar.css";
 
 export const Sidebar = () => {
-  const { state, changeFilters, dispatch } = useProduct();
+  const { state, dispatch } = useProduct();
+
+  const handleLowPrice = (e) => {
+    dispatch({ type: "LOW_PRICE", payload: e.target.value });
+    dispatch({ type: "SORT_PRICE", payload: e.target.value });
+  };
 
   return (
     <div>
@@ -25,14 +29,14 @@ export const Sidebar = () => {
               <input
                 type="range"
                 name="filter-price"
+                max="2500"
                 min="200"
-                max="3500"
                 step="400"
                 value={state?.filters?.priceRange}
                 className="input-range"
                 onChange={(event) => {
                   dispatch({
-                    type: "FILTER_PRICE",
+                    type: "FILTER_BY_PRICE",
                     payload: event.target.value,
                   });
                 }}
@@ -49,6 +53,7 @@ export const Sidebar = () => {
                       type="checkbox"
                       name="category-filter"
                       value="action"
+                      checked={state.filters.category.includes("action")}
                       onChange={(event) => {
                         dispatch({ type: "SET_ACTION", payload: event.target });
                       }}
@@ -60,6 +65,7 @@ export const Sidebar = () => {
                       type="checkbox"
                       name="category-filter"
                       value="sports"
+                      checked={state.filters.category.includes("sports")}
                       onChange={(event) => {
                         dispatch({ type: "SET_SPORTS", payload: event.target });
                       }}
@@ -71,6 +77,7 @@ export const Sidebar = () => {
                       type="checkbox"
                       name="category-filter"
                       value="horror"
+                      checked={state.filters.category.includes("horror")}
                       onChange={(event) => {
                         dispatch({ type: "SET_HORROR", payload: event.target });
                       }}
@@ -82,6 +89,7 @@ export const Sidebar = () => {
                       type="checkbox"
                       name="category-filter"
                       value="fiction"
+                      checked={state.filters.category.includes("fiction")}
                       onChange={(event) => {
                         dispatch({
                           type: "SET_FICTION",
@@ -105,7 +113,7 @@ export const Sidebar = () => {
                   type="radio"
                   name="rating"
                   value="1"
-                  checked={state?.filters?.checkRating === "1"}
+                  checked={state?.filters?.rating.includes("1")}
                   onChange={(event) => {
                     dispatch({
                       type: "SET_RATING",
@@ -121,7 +129,7 @@ export const Sidebar = () => {
                   type="radio"
                   name="rating"
                   value="2"
-                  checked={state?.filters?.checkRating === "2"}
+                  checked={state?.filters?.rating.includes("2")}
                   onChange={(event) => {
                     dispatch({
                       type: "SET_RATING",
@@ -137,7 +145,7 @@ export const Sidebar = () => {
                   type="radio"
                   name="rating"
                   value="3"
-                  checked={state?.filters?.checkRating === "3"}
+                  checked={state?.filters?.rating.includes("3")}
                   onChange={(event) => {
                     dispatch({
                       type: "SET_RATING",
@@ -153,7 +161,7 @@ export const Sidebar = () => {
                   type="radio"
                   name="rating"
                   value="4"
-                  checked={state?.filters?.checkRating === "4"}
+                  checked={state?.filters?.rating.includes("4")}
                   onChange={(event) => {
                     dispatch({
                       type: "SET_RATING",
@@ -173,8 +181,9 @@ export const Sidebar = () => {
                   type="radio"
                   name="sort"
                   value="lowToHigh"
+                  checked={state.filters.sortBy.includes("lowToHigh")}
                   onChange={(event) => {
-                    dispatch({ type: "SORT_PRICE", payload: event.target });
+                    handleLowPrice(event);
                   }}
                 />
                 <label>Low To High</label>
@@ -184,6 +193,7 @@ export const Sidebar = () => {
                   type="radio"
                   name="sort"
                   value="highToLow"
+                  checked={state.filters.sortBy.includes("highToLow")}
                   onChange={(event) => {
                     dispatch({ type: "SORT_PRICE", payload: event.target });
                   }}

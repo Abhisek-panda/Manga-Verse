@@ -1,14 +1,15 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import "../Header/header.css";
-import { useProduct } from "../../..";
+import { useAuthContext, useProduct } from "../../..";
 import { MdExplore, MdShoppingCart } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { FiHeart } from "react-icons/fi";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { state, dispatch } = useProduct();
+  const { dispatch, state } = useProduct();
+  const { token } = useAuthContext();
   const handleChange = (event) => {
     dispatch({ type: "SEARCH_FILTER", payload: event.target.value });
     navigate("/products");
@@ -29,9 +30,10 @@ export const Header = () => {
             </h1>
             <div className="search-container">
               <input
-                type="text"
-                placeholder="Search Your Manga"
+                type="search"
+                placeholder="Search Manga with Title"
                 className="input-search-bar"
+                value={state.filters.searchText}
                 onChange={(event) => handleChange(event)}
               />
             </div>
@@ -45,8 +47,8 @@ export const Header = () => {
               <NavLink to="/wishlist" className=" link-btn btn">
                 <FiHeart className="nav-bar-icons" />
               </NavLink>
-              <NavLink to="/login" className="link-btn">
-                Log In
+              <NavLink to="/login" className="link-btn header-log-btn">
+                {token ? "Logged In " : "Log In"}
               </NavLink>
             </div>
           </nav>

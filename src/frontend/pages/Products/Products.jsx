@@ -23,7 +23,11 @@ export const Products = () => {
           <Sidebar />
         </div>
         <div className="product-listing-container">
-          {
+          {showProducts.length === 0 ? (
+            <p className="cart-not-present product-not-present">
+              Nothing to Show
+            </p>
+          ) : (
             <>
               {showProducts.map((product) => {
                 const cartItem = state?.cart?.find(
@@ -108,7 +112,8 @@ export const Products = () => {
                 );
               })}
             </>
-          }
+          )}
+          {}
         </div>
       </div>
     </div>

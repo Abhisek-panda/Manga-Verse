@@ -44,6 +44,16 @@
   text-align: center;
 }
 
+.cart-not-present {
+  height: 90vh;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+}
+
 .cart-product-details {
   /* border: 2px solid yellow; */
   row-gap: 8px;

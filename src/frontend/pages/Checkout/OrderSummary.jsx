@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export const OrderSummary = () => {
   const { state } = useProduct();
+
   return (
     <div>
       <div className="orders">

@@ -1,12 +1,23 @@
-import { Link } from "react-router-dom";
 import { useProduct } from "../../..";
 import { Header } from "../Header/Header";
 import "../Checkout/Checkout.css";
 import { CheckoutAddress } from "./CheckoutAddress";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export const Checkout = () => {
-  const { totalCartDiscount, state, checkoutAddress } = useProduct();
-  console.log(state.checkoutAddress);
+  const { totalCartDiscount, state, checkoutAddress, dispatch } = useProduct();
+
+  const navigate = useNavigate();
+
+  const newCart = [];
+
+  const handleOrderPlaced = () => {
+    dispatch({ type: "CLEARED_CART", payload: newCart });
+    toast.success("Thanks For Order.");
+    navigate("/");
+  };
+
   return (
     <div>
       <div className="header">
@@ -51,9 +62,12 @@ export const Checkout = () => {
 
             <div className="checkout-address-combine">{checkoutAddress}</div>
 
-            <Link to="/order-summary" className="common-link place-order-link">
+            <button
+              className="common-link place-order-link"
+              onClick={() => handleOrderPlaced()}
+            >
               Place Order
-            </Link>
+            </button>
           </div>
         </div>
       </div>

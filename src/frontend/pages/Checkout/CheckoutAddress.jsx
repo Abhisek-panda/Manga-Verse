@@ -7,7 +7,6 @@ export const CheckoutAddress = ({ add }) => {
   const setAddresss = () => {
     const { id, ...rest } = add;
     const addArray = Object.values(rest);
-    console.log(addArray);
     setCheckoutAddress(addArray.join(" ,"));
   };
 

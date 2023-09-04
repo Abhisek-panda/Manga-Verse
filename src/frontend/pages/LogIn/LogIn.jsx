@@ -7,7 +7,7 @@ import { useAuthContext } from "../../..";
 import { useState } from "react";
 
 export const LogIn = () => {
-  const { isLoggedIn, logInHandler, handleLogOut } = useAuthContext();
+  const { isLoggedIn, logInHandler } = useAuthContext();
   const location = useLocation();
   const navigate = useNavigate();
   const [logInCredentials, setLogInCredentials] = useState({
@@ -16,9 +16,9 @@ export const LogIn = () => {
   });
 
   const handleLogIn = (e) => {
-    console.log(navigate(location?.state?.from?.pathname));
     e.preventDefault();
     logInHandler(logInCredentials);
+    navigate(location?.state?.from?.pathname);
   };
   return (
     <div>

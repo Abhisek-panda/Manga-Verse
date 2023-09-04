@@ -19,14 +19,8 @@ export const initialState = {
     searchText: "",
     rating: "",
     sortBy: "",
-    priceRange: 3500,
+    priceRange: "2500",
     category: [],
-    checkCategory: {
-      action: false,
-      sports: false,
-      horror: false,
-      fiction: false,
-    },
   },
   address: [
     {
@@ -43,6 +37,11 @@ export const initialState = {
 };
 
 export const ProductProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(ProductReducer, initialState);
+  const [checkoutAddress, setCheckoutAddress] = useState("Deliverable Address");
+  const [currAddress, setCurrAddress] = useState(state.address[0]);
+  const [editAdress, setEditAddress] = useState(null);
+
   const getProductData = async () => {
     try {
       const res = await fetch("/api/products");
@@ -55,11 +54,6 @@ export const ProductProvider = ({ children }) => {
       console.error(e);
     }
   };
-
-  const [state, dispatch] = useReducer(ProductReducer, initialState);
-  const [checkoutAddress, setCheckoutAddress] = useState("Deliverable Address");
-  const [currAddress, setCurrAddress] = useState(state.address[0]);
-  const [editAdress, setEditAddress] = useState(null);
 
   const addAddress = (newAddress) => {
     dispatch({
@@ -230,11 +224,12 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     let data = [...state.allProducts];
-    const searchText = state.filters.searchText
-      ? data.filter(({ title }) =>
-          title.toLowerCase().includes(state.filters.searchText.toLowerCase())
-        )
-      : data;
+    const searchText =
+      state.filters.searchText !== " "
+        ? data.filter(({ title }) =>
+            title.toLowerCase().includes(state.filters.searchText.toLowerCase())
+          )
+        : data;
 
     const filterByPrice = state.filters.priceRange
       ? searchText.filter(
@@ -263,7 +258,6 @@ export const ProductProvider = ({ children }) => {
         )
       : filterByRating;
 
-    console.log("aaa", sortByPrice);
     dispatch({ type: "SHOW_PRODUCTS", payload: sortByPrice });
   }, [state.filters]);
 

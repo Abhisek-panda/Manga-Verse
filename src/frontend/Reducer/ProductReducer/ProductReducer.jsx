@@ -7,6 +7,12 @@ export const ProductReducer = (state, action) => {
         showProducts: action.payload,
       };
 
+    case "CLEARED_CART":
+      return {
+        ...state,
+        cart: action.payload,
+      };
+
     case "REMOVE_FROM_CART":
       return {
         ...state,
@@ -52,27 +58,14 @@ export const ProductReducer = (state, action) => {
 
     // ! Filters:
 
-    // case "SEARCH_FILTER":
-    //   return {
-    //     ...state,
-    //     filters: { ...state?.filters, searchText: action.payload },
-    //   };
-
-    case "SEARCH_FILTER": {
-      if (action.payload === "") {
-        return {
-          ...state,
-          showProducts: state.allProducts,
-        };
-      } else {
-        return {
-          ...state,
-          showProducts: state.allProducts.filter(({ title }) =>
-            title.toLowerCase().includes(action.payload.toLowerCase())
-          ),
-        };
-      }
-    }
+    case "SEARCH_FILTER":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          searchText: action.payload,
+        },
+      };
 
     case "FILTER_BY_PRICE":
       return {
@@ -199,6 +192,22 @@ export const ProductReducer = (state, action) => {
         };
       }
     }
+    case "LOW_PRICE":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          sortBy: action.payload,
+        },
+      };
+    case "HOME_FILTER":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          category: [...state.filters.category, action.payload],
+        },
+      };
 
     case "CLEAR_FILTER":
       return {
@@ -208,7 +217,7 @@ export const ProductReducer = (state, action) => {
           searchText: "",
           rating: "",
           sortBy: "",
-          priceRange: 3500,
+          priceRange: "2500",
           category: [],
         },
       };
@@ -222,6 +231,7 @@ export const ProductReducer = (state, action) => {
       return { ...state, address: action.payload };
     case "CHECKOUT_ADDRESS":
       return { ...state, checkoutAddress: action.payload };
+
     default:
       return state;
   }

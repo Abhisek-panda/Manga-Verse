@@ -1,0 +1,59 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+  height: auto;
+  position: relative;
+  padding-bottom: 1rem;
+}
+.footer-link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 5px;
+}
+.footer-flex {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-top: -1rem;
+}
+
+.footer-link {
+  padding: 5px;
+}
+.footer-span-link {
+  text-decoration: none;
+  margin-left: 4px;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+.footer-span-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-para {
+  font-size: 1.2rem;
+}
+.footer-heading {
+  background-image: url("https://prod.assets.earlygamecdn.com/images/Chainsaw-Man-Header.jpg?transform=banner2x_webp");
+  font-family: "Martian Mono", monospace;
+  font-size: 50px;
+  text-transform: uppercase;
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-icons {
+  color: white;
+  transition: color 200ms ease;
+}
+.footer-icons:hover {
+  color: var(--third-color);
+}

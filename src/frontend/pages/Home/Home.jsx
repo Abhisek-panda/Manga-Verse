@@ -2,18 +2,28 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Header } from "../Header/Header";
 import "../Home/Home.css";
-import { useCategoriesContext } from "../../..";
+import { useCategoriesContext, useProduct } from "../../..";
+import Footer from "../../components/Footer";
 
 export const Home = () => {
   const navigate = useNavigate();
+  const { dispatch } = useProduct();
   const { showCategories } = useCategoriesContext();
   const { categories } = showCategories;
-  console.log(categories);
+
+  const handleCategoryFilter = (categoryName) => {
+    dispatch({
+      type: "HOME_FILTER",
+      payload: categoryName,
+    });
+    navigate("/products");
+    console.log({ categoryName });
+  };
 
   return (
     <div className="home-container">
       <Header />
-      <div className="hero-section">
+      <section className="hero-section">
         <div className="hero-img-container"></div>
         <div className="hero-text-container">
           <div className="hero-main-text">Manga Verse</div>
@@ -28,18 +38,21 @@ export const Home = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
       <div className="category-container">
         <h1 className="category-header">Category</h1>
         <hr className="category-line" />
-
         <div className="cont">
           {categories && (
             <>
               {categories.map((category) => {
                 const { _id, categoryName, image } = category;
                 return (
-                  <div className="category-card-container" key={_id}>
+                  <div
+                    className="category-card-container"
+                    onClick={() => handleCategoryFilter(categoryName)}
+                    key={_id}
+                  >
                     <div className="category-card-text-container">
                       <h2
                         className="category-card-header"
@@ -57,6 +70,9 @@ export const Home = () => {
             </>
           )}
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ export const CategoriesProvider = ({ children }) => {
   const getCategoriesData = async () => {
     try {
       const res = await fetch("/api/categories");
-      console.log("Reas", res);
 
       const data = await res?.json();
       //   localStorage.setItem("category", data);

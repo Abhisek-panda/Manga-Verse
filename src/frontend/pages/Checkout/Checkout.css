@@ -57,10 +57,13 @@
   border-radius: 5px;
   padding: 5px;
   margin-bottom: 10px;
-}
-.place-order-link:hover {
+  cursor: pointer;
   background-color: limegreen;
   color: black;
+  transition: all 200ms ease-in-out;
+}
+.place-order-link:hover {
+  background-color: var(--secondary-color);
 }
 
 /* checkout Adress  */
